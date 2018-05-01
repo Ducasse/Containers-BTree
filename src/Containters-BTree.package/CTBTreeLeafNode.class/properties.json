@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "CTBTreeNode",
+	"category" : "Containters-BTree",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "CTBTreeLeafNode",
+	"type" : "variable"
+}

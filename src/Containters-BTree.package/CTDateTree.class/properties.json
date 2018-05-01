@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "Collection",
+	"category" : "Containters-BTree",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"startTimes",
+		"endTimes",
+		"events"
+	],
+	"name" : "CTDateTree",
+	"type" : "normal"
+}

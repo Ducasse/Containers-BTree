@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "Collection",
+	"category" : "Containters-BTree",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"root",
+		"emptyValue"
+	],
+	"name" : "CTTSTree",
+	"type" : "normal"
+}

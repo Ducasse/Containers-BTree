@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "CTBTreeKeys",
+	"category" : "Containters-BTree",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "CTBTreeKeysArray",
+	"type" : "variable"
+}

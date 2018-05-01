@@ -1,0 +1,19 @@
+{
+	"commentStamp" : "",
+	"super" : "TestCase",
+	"category" : "Containters-BTree-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"now",
+		"sixHours",
+		"tomorrow",
+		"nextWeek",
+		"twoWeeks",
+		"threeWeeks",
+		"timespans"
+	],
+	"name" : "CTDateTreeTest",
+	"type" : "normal"
+}
