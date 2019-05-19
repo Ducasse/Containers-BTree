@@ -2,7 +2,7 @@ Class {
 	#name : #CTBTreeLeafNode,
 	#superclass : #CTBTreeNode,
 	#type : #variable,
-	#category : #'Containers-BTree'
+	#category : #'Containers-BTree-Model'
 }
 
 { #category : #enumerating }

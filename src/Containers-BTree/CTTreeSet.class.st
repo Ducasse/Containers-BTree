@@ -6,7 +6,7 @@ Class {
 		'sortKey',
 		'equalsKey'
 	],
-	#category : #'Containers-BTree'
+	#category : #'Containers-BTree-Model'
 }
 
 { #category : #'as yet unclassified' }
@@ -104,7 +104,7 @@ CTTreeSet >> includes: anObject [
 	^ self bucket: bucket includes: anObject
 ]
 
-{ #category : #'initialize-release' }
+{ #category : #initialization }
 CTTreeSet >> initializeWithKeys: aBtreeKeys sortSelector: sortSymbol equalitySelector: equalsSymbol [
 	self setTree: (CTBTree keys: aBtreeKeys) sortSelector: sortSymbol equalitySelector: equalsSymbol
 ]
@@ -112,7 +112,8 @@ CTTreeSet >> initializeWithKeys: aBtreeKeys sortSelector: sortSymbol equalitySel
 { #category : #public }
 CTTreeSet >> intersection: aCollection [
 	| newTree intersection |
-	(self isCompatibleTreeSetWith: aCollection) ifFalse: [^ super intersection: aCollection].
+	"commented for now since it led to an error on species creation. 
+	(self isCompatibleTreeSetWith: aCollection) ifFalse: [^ super intersection: aCollection]."
 
 	newTree := tree emptyCopy.
 	
@@ -130,6 +131,7 @@ CTTreeSet >> isCompatibleTreeSetWith: aCollection [
 	aCollection equalitySelector = self equalitySelector ifFalse: [^ false].
 	aCollection sortSelector = self sortSelector ifFalse: [^ false].
 	^ true
+
 ]
 
 { #category : #public }
@@ -178,7 +180,7 @@ CTTreeSet >> second [
 	^ self atIndex: 2
 ]
 
-{ #category : #'initialize-release' }
+{ #category : #initialization }
 CTTreeSet >> setTree: aBTree sortSelector: sortSymbol equalitySelector: equalsSymbol [
 	tree := aBTree.
 	sortKey := sortSymbol.

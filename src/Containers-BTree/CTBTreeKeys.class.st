@@ -1,7 +1,7 @@
 Class {
 	#name : #CTBTreeKeys,
 	#superclass : #Object,
-	#category : #'Containers-BTree'
+	#category : #'Containers-BTree-Model'
 }
 
 { #category : #testing }

@@ -105,19 +105,20 @@ CTBTreeTest >> testCommonKeysDifferentValues [
 	small := CTBTree new.
 	2 to: 2000 by: 11 do: [:i | small at: i put: i*2].
 	
-	expectedResults := ((-9 to: 1000 by: 22) allButFirst collect: [:i | Array with: i with: i with: i*2]) asOrderedCollection.
+	expectedResults := ((-9 to: 1000 by: 22) allButFirst 
+		collect: [:i | Array with: i with: i with: i*2]) asOrderedCollection.
 	
 	results := OrderedCollection new.
 	large commonKeysWith: small keysAndValuesDo:
 		[:k :v1 :v2 |
 		results add: (Array with: k with: v1 with: v2)].
-	self assert: results = expectedResults.
+	self assert: results equals: expectedResults.
 	
 	results := OrderedCollection new.
 	small commonKeysWith: large keysAndValuesDo:
 		[:k :v1 :v2 |
 		results add: (Array with: k with: v2 with: v1)].
-	self assert: results = expectedResults
+	self assert: results equals: expectedResults
 ]
 
 { #category : #tests }

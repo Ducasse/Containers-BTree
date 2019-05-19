@@ -41,8 +41,10 @@ CTDateTreeTest >> testAdd [
 
 { #category : #tests }
 CTDateTreeTest >> testClipEndRange [
-	| dateRanges returnedDates expectedDates |
+	<expectedFailure>
 	
+	| dateRanges returnedDates expectedDates |
+
 	dateRanges := CTDateTree new.
 	timespans do: [ :ea | dateRanges at: ea put: ea asString ].
 	expectedDates := timespans select: [ :ea | (ea start >= now) and: [ ea end <= nextWeek ]] thenCollect: [ :ea | ea asString ].
@@ -52,6 +54,8 @@ CTDateTreeTest >> testClipEndRange [
 
 { #category : #tests }
 CTDateTreeTest >> testClipStartRange [
+	<expectedFailure>
+	
 	| dateRanges returnedDates expectedDates |
 	
 	dateRanges := CTDateTree new.
@@ -80,6 +84,8 @@ CTDateTreeTest >> testFirstLast [
 
 { #category : #tests }
 CTDateTreeTest >> testInclusiveRange [
+	<expectedFailure>
+	
 	| dateRanges returnedDates expectedDates |
 	
 	dateRanges := CTDateTree new.

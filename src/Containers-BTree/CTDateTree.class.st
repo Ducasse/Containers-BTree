@@ -9,7 +9,7 @@ Class {
 		'endTimes',
 		'events'
 	],
-	#category : #'Containers-BTree'
+	#category : #'Containers-BTree-Model'
 }
 
 { #category : #accessing }
@@ -88,8 +88,9 @@ CTDateTree >> first [
 		ifAbsent: [ self errorEmptyCollection ]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : #initialization }
 CTDateTree >> initialize [
+	super initialize.
 	startTimes := CTBTree new.
 	endTimes := CTBTree new.
 	events := Dictionary new

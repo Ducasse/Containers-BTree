@@ -5,7 +5,7 @@ Class {
 		'root',
 		'emptyValue'
 	],
-	#category : #'Containers-BTree'
+	#category : #'Containers-BTree-Model'
 }
 
 { #category : #accessing }
@@ -36,7 +36,7 @@ CTTSTree >> at: aString put: anObject [
 
 { #category : #enumerating }
 CTTSTree >> do: aBlock [
-	emptyValue ifNotNilDo: aBlock.
+	emptyValue ifNotNil: aBlock.
 	root ifNotNil: [root do: aBlock]
 ]
 

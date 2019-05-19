@@ -2,7 +2,7 @@ Class {
 	#name : #CTBTreeInteriorNode,
 	#superclass : #CTBTreeNode,
 	#type : #variable,
-	#category : #'Containers-BTree'
+	#category : #'Containers-BTree-Model'
 }
 
 { #category : #'as yet unclassified' }
@@ -29,7 +29,7 @@ CTBTreeInteriorNode >> commonKeysWith: aNode keysAndValuesDo: aBlock flip: aBool
 	index := (keys findIndexForKey: aNode firstKey) max: 1.
 	index to: self size do:
 		[:i |
-		(self at: i) ifNotNilDo: [:c | c commonKeysWith: aNode keysAndValuesDo: aBlock flip: aBoolean]]
+		(self at: i) ifNotNil: [:c | c commonKeysWith: aNode keysAndValuesDo: aBlock flip: aBoolean]]
 ]
 
 { #category : #accessing }

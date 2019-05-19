@@ -2,5 +2,5 @@ Class {
 	#name : #CTBTreeKeysArray,
 	#superclass : #CTBTreeKeys,
 	#type : #variable,
-	#category : #'Containers-BTree'
+	#category : #'Containers-BTree-Model'
 }

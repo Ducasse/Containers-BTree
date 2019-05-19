@@ -8,7 +8,7 @@ Class {
 		'high',
 		'equal'
 	],
-	#category : #'Containers-BTree'
+	#category : #'Containers-BTree-Model'
 }
 
 { #category : #'as yet unclassified' }
@@ -30,7 +30,7 @@ CTTSTreeNode >> cullNode: aNode [
 
 { #category : #private }
 CTTSTreeNode >> do: aBlock [
-	self nodesDo: [:ea | ea value ifNotNilDo: aBlock]
+	self nodesDo: [:ea | ea value ifNotNil: aBlock]
 ]
 
 { #category : #private }

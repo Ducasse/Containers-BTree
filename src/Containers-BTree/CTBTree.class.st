@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'root'
 	],
-	#category : #'Containers-BTree'
+	#category : #'Containers-BTree-Model'
 }
 
 { #category : #'as yet unclassified' }
@@ -110,7 +110,7 @@ CTBTree >> from: start to: end keysAndValuesDo: aBlock [
 					[aBlock value: k value: v]]]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : #initialization }
 CTBTree >> initializeWithKeys: aBTreeKeys [
 	aBTreeKeys size > 3 ifFalse: [self error: 'The BTree order must be at least 4'].
 	root := CTBTreeLeafNode keys: aBTreeKeys
