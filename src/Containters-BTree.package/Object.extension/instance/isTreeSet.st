@@ -1,3 +1,0 @@
-*Containters-BTree
-isTreeSet
-	^ false
