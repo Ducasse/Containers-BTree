@@ -6,7 +6,7 @@ Class {
 		'parent',
 		'keys'
 	],
-	#category : 'Containters-BTree'
+	#category : #'Containers-BTree'
 }
 
 { #category : #'as yet unclassified' }

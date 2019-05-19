@@ -9,7 +9,7 @@ Class {
 		'endTimes',
 		'events'
 	],
-	#category : 'Containters-BTree'
+	#category : #'Containers-BTree'
 }
 
 { #category : #accessing }

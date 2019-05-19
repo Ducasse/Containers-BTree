@@ -5,7 +5,7 @@ Class {
 		'root',
 		'emptyValue'
 	],
-	#category : 'Containters-BTree'
+	#category : #'Containers-BTree'
 }
 
 { #category : #accessing }

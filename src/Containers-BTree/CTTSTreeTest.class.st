@@ -5,7 +5,7 @@ Class {
 		'tree',
 		'empty'
 	],
-	#category : 'Containters-BTree-Tests'
+	#category : #'Containers-BTree-Tests'
 }
 
 { #category : #setup }

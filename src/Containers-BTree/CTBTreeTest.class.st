@@ -16,7 +16,7 @@ A B-Tree of order m is a search tree, where the data
 Class {
 	#name : #CTBTreeTest,
 	#superclass : #TestCase,
-	#category : 'Containters-BTree-Tests'
+	#category : #'Containers-BTree-Tests'
 }
 
 { #category : #assertions }

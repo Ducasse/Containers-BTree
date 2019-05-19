@@ -1,6 +1,6 @@
 Extension { #name : #Object }
 
-{ #category : #'*Containters-BTree' }
+{ #category : #'*Containers-BTree' }
 Object >> isTreeSet [
 	^ false
 ]

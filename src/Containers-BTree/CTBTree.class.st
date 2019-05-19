@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'root'
 	],
-	#category : 'Containters-BTree'
+	#category : #'Containers-BTree'
 }
 
 { #category : #'as yet unclassified' }

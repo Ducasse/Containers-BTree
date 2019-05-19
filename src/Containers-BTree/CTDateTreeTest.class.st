@@ -10,7 +10,7 @@ Class {
 		'threeWeeks',
 		'timespans'
 	],
-	#category : 'Containters-BTree-Tests'
+	#category : #'Containers-BTree-Tests'
 }
 
 { #category : #running }
