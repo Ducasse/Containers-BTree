@@ -89,7 +89,7 @@ CTBTreeTest >> checkTreeWithOrder: order items: count [
 
 { #category : #tests }
 CTBTreeTest >> testAddAndRetrieveWithSplit [
-	self checkTreeWithOrder: 4 items: 5
+	self checkTreeWithOrder: 4  items: 5
 ]
 
 { #category : #tests }
