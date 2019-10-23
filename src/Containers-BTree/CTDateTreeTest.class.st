@@ -36,7 +36,7 @@ CTDateTreeTest >> testAdd [
 	dateRanges := CTDateTree new.
 	timespan := Timespan starting: now ending: twoWeeks.
 	dateRanges at: timespan put: timespan.
-	self assert: ((dateRanges at: timespan) = timespan)
+	self assert: (dateRanges at: timespan) equals: timespan
 ]
 
 { #category : #tests }
@@ -49,7 +49,7 @@ CTDateTreeTest >> testClipEndRange [
 	timespans do: [ :ea | dateRanges at: ea put: ea asString ].
 	expectedDates := timespans select: [ :ea | (ea start >= now) and: [ ea end <= nextWeek ]] thenCollect: [ :ea | ea asString ].
 	returnedDates := (dateRanges between: now and: nextWeek) collect: [ :ea | ea asString ].
-	self assert: (returnedDates intersection: expectedDates) size = expectedDates size.
+	self assert: (returnedDates intersection: expectedDates) size equals: expectedDates size
 ]
 
 { #category : #tests }
@@ -72,14 +72,14 @@ CTDateTreeTest >> testFirstLast [
 	self should: [ dateRanges first ] raise: Error.
 	self should: [ dateRanges last ] raise: Error.
 	dateRanges at: (Timespan starting: tomorrow ending: nextWeek) put: #inner.
-	self assert: dateRanges first = #inner.
-	self assert: dateRanges last = #inner.
+	self assert: dateRanges first equals: #inner.
+	self assert: dateRanges last equals: #inner.
 	dateRanges at: (Timespan starting: now ending: twoWeeks) put: #outer.
-	self assert: dateRanges first = #outer.
-	self assert: dateRanges last = #outer.
+	self assert: dateRanges first equals: #outer.
+	self assert: dateRanges last equals: #outer.
 	dateRanges at: (Timespan starting: tomorrow ending: threeWeeks) put: #last.
-	self assert: dateRanges first = #outer.
-	self assert: dateRanges last = #last
+	self assert: dateRanges first equals: #outer.
+	self assert: dateRanges last equals: #last
 ]
 
 { #category : #tests }

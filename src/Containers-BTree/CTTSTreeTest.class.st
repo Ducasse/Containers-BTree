@@ -17,43 +17,43 @@ CTTSTreeTest >> setUp [
 
 { #category : #tests }
 CTTSTreeTest >> testAt [
-	self assert: (tree at: 'abear') = 'ABEAR'.
-	self assert: (tree at: 'abelmosk') = 'ABELMOSK'.
-	self assert: (tree at: 'abracadabra' ifAbsent: [42]) = 42.
-	self assert: (tree at: '' ifAbsent: [42]) = 42.
-	self assert: (empty at: 'foo' ifAbsent: [42]) = 42 
+	self assert: (tree at: 'abear') equals: 'ABEAR'.
+	self assert: (tree at: 'abelmosk') equals: 'ABELMOSK'.
+	self assert: (tree at: 'abracadabra' ifAbsent: [42]) equals: 42.
+	self assert: (tree at: '' ifAbsent: [42]) equals: 42.
+	self assert: (empty at: 'foo' ifAbsent: [42]) equals: 42 
 ]
 
 { #category : #tests }
 CTTSTreeTest >> testMatch [
-	self assert: (tree matchesForString: 'abea' distance: 1) asSet = #(ABEAM ABEAR ABED ABEL ABET ABE) asSet.
-	self assert: (tree matchesForString: 'abel' distance: 2) asSet = #(ABELIA ABEAM ABEAR) asSet.
-	self assert: (tree matchesForString: 'abel' distance: 0) = #(ABEL).
-	self assert: (tree matchesForString: '' distance: 1) = #().
-	self assert: (empty matchesForString: 'foo' distance: 0) = #()
+	self assert: (tree matchesForString: 'abea' distance: 1) asSet equals: #(ABEAM ABEAR ABED ABEL ABET ABE) asSet.
+	self assert: (tree matchesForString: 'abel' distance: 2) asSet equals: #(ABELIA ABEAM ABEAR) asSet.
+	self assert: (tree matchesForString: 'abel' distance: 0) equals: #(ABEL).
+	self assert: (tree matchesForString: '' distance: 1) equals: #().
+	self assert: (empty matchesForString: 'foo' distance: 0) equals: #()
 ]
 
 { #category : #tests }
 CTTSTreeTest >> testPrefix [
-	self assert: (tree matchesForPrefix: 'abet') asSet = #(ABET ABETMENT) asSet.
-	self assert: (tree matchesForPrefix: 'abelm') asSet = #(ABELMOSCHUS ABELMOSK) asSet.
-	self assert: (tree matchesForPrefix: '') asSet = (self words asSet collect: [:ea | ea asUppercase]).
-	self assert: (empty matchesForPrefix: 'foo') = #()
+	self assert: (tree matchesForPrefix: 'abet') asSet equals: #(ABET ABETMENT) asSet.
+	self assert: (tree matchesForPrefix: 'abelm') asSet equals: #(ABELMOSCHUS ABELMOSK) asSet.
+	self assert: (tree matchesForPrefix: '') asSet equals: (self words asSet collect: [:ea | ea asUppercase]).
+	self assert: (empty matchesForPrefix: 'foo') equals: #()
 ]
 
 { #category : #tests }
 CTTSTreeTest >> testRemove [
-	self assert: (tree at: 'abel') = 'ABEL'.
-	self assert: (tree removeKey: 'abel') = 'ABEL'.
-	self assert: (tree at: 'abel' ifAbsent: [42]) = 42.
-	self assert: (tree at: 'abelmosk') = 'ABELMOSK'.
-	self assert: (tree removeKey: 'foo' ifAbsent: [42]) = 42.
-	self assert: (tree removeKey: 'abel' ifAbsent: [42]) = 42.
+	self assert: (tree at: 'abel') equals: 'ABEL'.
+	self assert: (tree removeKey: 'abel') equals: 'ABEL'.
+	self assert: (tree at: 'abel' ifAbsent: [42]) equals: 42.
+	self assert: (tree at: 'abelmosk') equals: 'ABELMOSK'.
+	self assert: (tree removeKey: 'foo' ifAbsent: [42]) equals: 42.
+	self assert: (tree removeKey: 'abel' ifAbsent: [42]) equals: 42.
 ]
 
 { #category : #tests }
 CTTSTreeTest >> testValues [
-	self assert: tree values asSet = (self words asSet collect: [:ea | ea asUppercase]).
+	self assert: tree values asSet equals: (self words asSet collect: [:ea | ea asUppercase]).
 	self assert: empty values isEmpty
 ]
 
