@@ -162,7 +162,7 @@ CTBTree >> do: aBlock [
 
 { #category : #copying }
 CTBTree >> emptyCopy [
-	^ CTBTree keys: root keyArray emptyCopy
+	^ self class keys: root keyArray emptyCopy
 ]
 
 { #category : #accessing }

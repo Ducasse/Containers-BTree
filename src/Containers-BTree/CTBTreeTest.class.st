@@ -29,21 +29,16 @@ CTBTreeTest >> assertConsistent: aBTree [
 A B-Tree of order m is a search tree, where the data 
   (or pointers to it) is stored at the leaves, such that:
 
-1) the root is either a leaf (as well--i.e. the tree is 
-     a single node) or has between 2 and m children"
-	
+	1) the root is either a leaf (as well--i.e. the tree is a single node) or has between 2 and m children"
 	self assert: (root isLeaf or: [root values size between: 2 and: aBTree order]).
 	
-"  2) all other (non-root) nodes have at least m/2 children,
-     but no more than m children"
-
+"  2) all other (non-root) nodes have at least m/2 children, but no more than m children"
 	root allChildrenDo: [:ea | self assert: (ea values size between: (aBTree order // 2) and: aBTree order)]. 
 
 "  3) all leaves are at the same depth"
-
 	depths := Set new.
 	root withAllChildrenDo: [:ea | ea isLeaf ifTrue: [depths add: ea depth]].
-	self assert: depths size = 1.
+	self assert: depths size equals: 1
 ]
 
 { #category : #assertions }
@@ -61,13 +56,13 @@ CTBTreeTest >> checkTree: tree array: pairArray [
 	pairArray withIndexDo:
 		[:pair :i |
 		tree at: pair first put: pair second.
-		self assert: tree size = i.
+		self assert: tree size equals: i.
 		"self assertConsistent: tree.
 		self assertSorted: tree"].
 	pairArray shuffled do:
 		[:pair |
-		self assert: (tree at: pair first) = pair second].
-	self assert: tree size = pairArray size.
+		self assert: (tree at: pair first) equals: pair second].
+	self assert: tree size equals: pairArray size.
 	self assertConsistent: tree.
 	self assertSorted: tree.
 	^ tree
@@ -95,6 +90,32 @@ CTBTreeTest >> testAddAndRetrieveWithSplit [
 { #category : #tests }
 CTBTreeTest >> testAddAndRetrieveWithTwoSplits [
 	self checkTreeWithOrder: 4 items: 17
+]
+
+{ #category : #'test api' }
+CTBTreeTest >> testAtIfAbsent [
+	| tree |
+	tree := CTBTree new.
+	tree at: 1 put: 'foo'.
+	tree at: 2 put: 'bar'.
+	self assert: (tree at: 1 ifAbsent: [42]) equals: 'foo'.
+	self assert: (tree at: 2 ifAbsent: [42]) equals: 'bar'.
+	self assert: (tree at: 3 ifAbsent: [42]) equals: 42.
+]
+
+{ #category : #'test api' }
+CTBTreeTest >> testAtPut [
+	| tree |
+	tree := CTBTree new.
+	tree at: 1 put: 'one'.
+	tree at: 2 put: 'two'.
+	tree at: 3 put: 'three'.
+	self assert: (tree at: 1) equals: 'one'.
+	self assert: (tree at: 2) equals: 'two'.
+	self assert: (tree at: 3) equals: 'three'.
+	tree at: 3 put: 'four'.
+	self assert: (tree at: 3) equals: 'four'.
+
 ]
 
 { #category : #tests }
@@ -177,6 +198,16 @@ CTBTreeTest >> testFound [
 	self assert: found
 ]
 
+{ #category : #'test api' }
+CTBTreeTest >> testKeys [
+	| tree |
+	tree := CTBTree new.
+	tree at: 1 put: 'one'.
+	tree at: 2 put: 'two'.
+	tree at: 3 put: 'three'.
+	self assert: tree keys equals: #(1 2 3)
+]
+
 { #category : #tests }
 CTBTreeTest >> testLargeTree [
 	self checkTreeWithOrder: 8 items: 5000
@@ -188,11 +219,12 @@ CTBTreeTest >> testLargeTree [
 CTBTreeTest >> testMissing [
 	| tree |
 	tree := CTBTree new.
-	tree at: 1 put: 'foo'.
-	tree at: 2 put: 'bar'.
-	self assert: (tree at: 1 ifAbsent: [42]) = 'foo'.
-	self assert: (tree at: 2 ifAbsent: [42]) = 'bar'.
-	self assert: (tree at: 3 ifAbsent: [42]) = 42.
+	tree at: 1 put: 'one'.
+	tree at: 2 put: 'two'.
+	tree at: 3 put: 'three'.
+	self assert: (tree at: 1) equals: 'one'.
+	self assert: (tree at: 2) equals: 'two'.
+
 ]
 
 { #category : #tests }
