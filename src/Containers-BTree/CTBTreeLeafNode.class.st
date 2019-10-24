@@ -88,6 +88,13 @@ CTBTreeLeafNode >> leavesFrom: start to: end do: aBlock [
 	aBlock value: self
 ]
 
+{ #category : #printing }
+CTBTreeLeafNode >> printOn: aStream [
+
+	super printOn: aStream. 
+	aStream nextPutAll: '[' ; nextPutAll: keys asString ; nextPutAll: ']'
+]
+
 { #category : #'as yet unclassified' }
 CTBTreeLeafNode >> valueForKey: aMagnitude ifAbsent: errorBlock [
 	| i |

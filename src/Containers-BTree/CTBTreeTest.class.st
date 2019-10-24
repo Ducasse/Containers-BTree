@@ -208,6 +208,15 @@ CTBTreeTest >> testKeys [
 	self assert: tree keys equals: #(1 2 3)
 ]
 
+{ #category : #'test api' }
+CTBTreeTest >> testLarge [
+	| tree |
+	tree := CTBTree new.
+	#(9 30 3 6 12 15 19 26 33 36 1 2 4 5 7 8 10 11 13 14 16 18 20 22 25 28 29 31 32 34 35 37 38 39 40 41)
+		do: [ :each | tree at: each put: each ].
+	self assert: tree depth equals: 3
+]
+
 { #category : #tests }
 CTBTreeTest >> testLargeTree [
 	self checkTreeWithOrder: 8 items: 5000

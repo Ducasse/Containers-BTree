@@ -151,6 +151,11 @@ CTBTreeNode >> keyArray [
 	^ keys
 ]
 
+{ #category : #accessing }
+CTBTreeNode >> keys [
+	^ keys
+]
+
 { #category : #private }
 CTBTreeNode >> keys: anArray [
 	keys := anArray

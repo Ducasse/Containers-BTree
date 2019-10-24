@@ -5,7 +5,7 @@ Class {
 	#category : #'Containers-BTree-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #query }
 CTBTreeInteriorNode >> childForKey: aMagnitude [
 	| index |
 	index := keys findIndexForKey: aMagnitude.
@@ -37,7 +37,7 @@ CTBTreeInteriorNode >> depth [
 	^ 1 + self firstChild depth
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #query }
 CTBTreeInteriorNode >> existingChildForKey: aMagnitude [
        "Unlike #childForKey:, this method looks for a child, but doesn't mess with the tree if it doesn't exist."
        | index |
@@ -47,7 +47,7 @@ CTBTreeInteriorNode >> existingChildForKey: aMagnitude [
                ifFalse: [^ self at: index].
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #query }
 CTBTreeInteriorNode >> existingLeafForKey: aMagnitude [
 	"Unlike #leafForKey:, this method looks for a leaf but doesn't mess with the tree if it doesn't exist."
 
@@ -88,7 +88,7 @@ CTBTreeInteriorNode >> last [
 	^ child last
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #query }
 CTBTreeInteriorNode >> leafForKey: aMagnitude [
 	^ (self childForKey: aMagnitude) leafForKey: aMagnitude
 ]
@@ -101,7 +101,7 @@ CTBTreeInteriorNode >> leavesFrom: start to: end do: aBlock [
 	startIndex to: endIndex do: [:i | (self at: i) leavesFrom: start to: end do: aBlock]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #query }
 CTBTreeInteriorNode >> nextSiblingForChild: aNode [
 	| index |
 	index := keys findIndexForKey: aNode firstKey.
@@ -110,7 +110,15 @@ CTBTreeInteriorNode >> nextSiblingForChild: aNode [
 		ifFalse: [self at: index + 1]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #printing }
+CTBTreeInteriorNode >> printOn: aStream [
+	super printOn: aStream.
+	aStream nextPut: $[.
+	aStream print: keys.
+	aStream nextPut: $].
+]
+
+{ #category : #update }
 CTBTreeInteriorNode >> updateKey: oldMagnitude to: newMagnitude [
        keys withIndexDo:
                [:key :i |
