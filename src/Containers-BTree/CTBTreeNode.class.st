@@ -1,3 +1,21 @@
+"
+A node in a BTtree can be either an internal node or a leave node.
+
+           (37 # _ )
+            /           \
+           /             \
+          /               \
+      (21 # 29)            (50 # _ )
+     /    |     \          /       \
+    /     |      \        /         \
+(7,9,11) (21,23) (29,30) (37,49)   (50,100)
+
+Here (7,9,11), (21,23), (29,30), (37,49) and (50,100) are leave nodes. 
+All the leave nodes are at the same depth.
+
+(37 # _ ), (21 # 29), (50 # _ ) are internal nodes. 
+
+"
 Class {
 	#name : #CTBTreeNode,
 	#superclass : #Object,
