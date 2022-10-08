@@ -1,9 +1,8 @@
 # Containers-BTree (underway...)
 
 
-
-The BTree package is under work.
-I'm not sure but it may have been originally developed by L. Ramon. 
+The B-Tree package is under work.
+A B-Tree is a balanced tree of a given order.
 
 
 This package is part of the Containers project: This project is to collect, clean, test and document alternate collection datastructures.
